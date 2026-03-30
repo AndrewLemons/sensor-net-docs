@@ -1,0 +1,8 @@
+{
+	"$schema": "./node_modules/wrangler/config-schema.json",
+	"compatibility_date": "2026-03-27",
+	"name": "sensor-net-docs",
+	"assets": {
+		"directory": "./dist",
+	},
+}

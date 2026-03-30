@@ -1,0 +1,52 @@
+---
+title: Sensor Net
+description: Build and study a wireless mesh sensor network with LoRa radio, ESP32 microcontrollers, and a live monitoring dashboard.
+template: splash
+hero:
+  tagline: A hands-on educational platform for wireless sensor networks. Built on LoRa radio, ESP32 microcontrollers, and a simple mesh network.
+  actions:
+    - text: Get Started
+      link: /getting-started/overview/
+      icon: right-arrow
+    - text: View on GitHub
+      link: https://github.com/AndrewLemons/sensor-net-docs
+      icon: external
+      variant: minimal
+---
+
+import { Card, CardGrid } from "@astrojs/starlight/components";
+
+## What is Sensor Net?
+
+Sensor Net is a small-scale wireless sensor network you can build with off-the-shelf hardware costing roughly $30 per node. Sensor nodes read temperature and atmospheric pressure from attached sensors, broadcast readings over long-range LoRa radio, and relay each other's packets through a simple mesh network. A receiver node collects all the data and forwards it to a desktop monitoring application that provides live analytics and visualization.
+
+This project was designed for **Innovate ECE: The Ultimate Thread Challenge**, demonstrating concepts from the **Information Internetworks** thread. The system showcases data capture, representation, transformation, transmission, and presentation across a distributed network of devices.
+
+## Documentation Sections
+
+<CardGrid stagger>
+	<Card title="Getting Started" icon="rocket">
+		Everything you need to know before you begin: what Sensor Net is, the parts
+		you need to buy, and the software to install.
+	</Card>
+	<Card title="Hardware" icon="setting">
+		Detailed information about the Heltec development board, the TMP102 and
+		BMP280 sensors, and step-by-step wiring instructions.
+	</Card>
+	<Card title="Firmware" icon="seti:hex">
+		How to set up, configure, build, and flash the firmware that runs on each
+		node. Includes guidance on extending the platform with new sensors.
+	</Card>
+	<Card title="Monitor Application" icon="laptop">
+		Install, run, and use the desktop dashboard application that visualizes your
+		sensor network in real time.
+	</Card>
+	<Card title="Concepts" icon="open-book">
+		In-depth explanations of the technologies behind Sensor Net: LoRa radio,
+		mesh networking, Protocol Buffers, and end-to-end data flow.
+	</Card>
+	<Card title="Reference" icon="list-format">
+		Quick-lookup tables for configuration options, pin assignments, serial
+		formats, firmware modules, and a complete glossary.
+	</Card>
+</CardGrid>

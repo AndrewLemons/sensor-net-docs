@@ -1,0 +1,22 @@
+{
+	"name": "sensor-net-docs",
+	"version": "0.0.1",
+	"dependencies": {
+		"@astrojs/starlight": "^0.38.2",
+		"astro": "^6.0.1",
+		"sharp": "^0.34.2",
+		"wrangler": "^4.78.0"
+	},
+	"scripts": {
+		"dev": "astro dev",
+		"start": "astro dev",
+		"build": "astro build",
+		"preview": "astro preview",
+		"astro": "astro",
+		"format": "prettier --write ."
+	},
+	"type": "module",
+	"devDependencies": {
+		"prettier": "^3.8.1"
+	}
+}

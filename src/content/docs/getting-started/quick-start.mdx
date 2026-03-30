@@ -1,0 +1,149 @@
+---
+title: Quick Start
+description: Get your Sensor Net mesh network up and running from scratch.
+---
+
+import { Steps } from "@astrojs/starlight/components";
+
+This guide walks you through every stage — hardware, firmware, and monitor — so you have a live sensor network running as quickly as possible. For deeper detail on any step, follow the links to the relevant section of the docs.
+
+<Steps>
+
+1. **Gather your hardware**
+
+   A minimal three-node network requires the following components. See the [Parts List](/getting-started/parts-list/) for exact quantities and purchasing links.
+   - 3× Heltec WiFi LoRa 32 V3 (~$18 each)
+   - 1× TMP102 temperature breakout (~$5)
+   - 1× BMP280 pressure breakout (~$4)
+   - Jumper wires and a breadboard
+
+2. **Install software prerequisites**
+
+   Install the tools needed for both the firmware and the monitor application before cloning any repositories.
+
+   **Firmware tools**
+   - **PlatformIO** — install the [PlatformIO IDE extension](https://platformio.org/install/ide?install=vscode) in VS Code, or run `pip install platformio` for the CLI.
+   - **Git** — verify with `git --version`. On macOS run `xcode-select --install` if it is missing.
+
+   **Monitor tools**
+   - **Rust** — `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`
+   - **Bun** — `curl -fsSL https://bun.sh/install | bash`
+   - **Tauri system dependencies** (Linux only):
+     ```sh
+     sudo apt update && sudo apt install libwebkit2gtk-4.1-dev build-essential \
+       curl wget file libxdo-dev libssl-dev libayatana-appindicator3-dev librsvg2-dev
+     ```
+
+   Verify everything installed correctly:
+
+   ```sh
+   git --version
+   rustc --version
+   bun --version
+   ```
+
+3. **Clone and verify the firmware repository**
+
+   ```sh
+   git clone https://github.com/AndrewLemons/sensor-net-firmware.git
+   cd sensor-net-firmware
+   ```
+
+   Open the folder in VS Code. PlatformIO will automatically detect the project and download the ESP32 board support package. Confirm the toolchain builds cleanly:
+
+   ```sh
+   cd firmware/node
+   pio run
+   ```
+
+   A successful build ends with `SUCCESS`. See [Firmware Setup](/firmware/setup/) for a full project layout reference.
+
+4. **Assemble the hardware**
+
+   Wire each sensor breakout to its Heltec board using I2C. The receiver node needs no external wiring.
+
+   **Temperature node (TMP102)**
+
+   | TMP102 | Heltec V3 |
+   | ------ | --------- |
+   | VCC    | 3.3V      |
+   | GND    | GND       |
+   | SDA    | GPIO 17   |
+   | SCL    | GPIO 18   |
+   | ADD0   | GND       |
+
+   **Pressure node (BMP280)**
+
+   | BMP280 | Heltec V3 |
+   | ------ | --------- |
+   | VIN    | 3.3V      |
+   | GND    | GND       |
+   | SDA    | GPIO 17   |
+   | SCL    | GPIO 18   |
+   | SDO    | GND       |
+
+   :::caution
+   Always connect VCC/VIN to the **3.3 V** pin. These sensors are not 5 V tolerant.
+   :::
+
+   Full wiring diagrams and pin photos are in [Hardware Assembly](/hardware/assembly/).
+
+5. **Configure and flash each node**
+
+   Open `firmware/node/include/config.h` and set `NODE_TYPE` before each flash. Connect the board via USB-C, then run:
+
+   ```sh
+   pio run -t upload
+   ```
+
+   Flash all three boards in order:
+
+   | Node        | `NODE_TYPE` value  | Sensor attached |
+   | ----------- | ------------------ | --------------- |
+   | Receiver    | `NODE_RECEIVER`    | None            |
+   | Temperature | `NODE_TEMPERATURE` | TMP102          |
+   | Pressure    | `NODE_PRESSURE`    | BMP280          |
+
+   After flashing each board, verify the serial output looks correct:
+
+   ```sh
+   pio device monitor
+   ```
+
+   The receiver prints `[REPORT]` lines when it hears from sensor nodes. See [Building & Flashing](/firmware/building-and-flashing/) for troubleshooting upload failures.
+
+6. **Clone and set up the monitor application**
+
+   ```sh
+   git clone https://github.com/AndrewLemons/sensor-net-monitor.git
+   cd sensor-net-monitor
+   bun install
+   ```
+
+   See [Monitor Setup](/monitor/setup/) for a full project layout reference.
+
+7. **Run the monitor and connect to the receiver**
+
+   Start the application in development mode:
+
+   ```sh
+   bun run tauri dev
+   ```
+
+   Once the window opens:
+   1. Plug the receiver node into your computer via USB.
+   2. Click the refresh button (circular arrow) to scan for available ports.
+   3. Select the receiver's port (e.g. `/dev/tty.usbmodemXXXX` on macOS).
+   4. Click **Connect** — the baud rate is 115200.
+   5. The status indicator in the header turns green when data is flowing.
+
+   Power on all sensor nodes. Within a few seconds you should see live temperature and pressure readings appear on the dashboard.
+
+</Steps>
+
+## Next steps
+
+- Explore the [Concepts](/concepts/lora-radio/) section to understand how LoRa radio and mesh networking work under the hood.
+- Learn how to [extend the firmware](/firmware/extending/) to add new sensor types.
+- Learn how to [extend the monitor](/monitor/extending/) to add new dashboard panels.
+- Review the [Configuration Reference](/reference/configuration/) for all available build-time settings.
