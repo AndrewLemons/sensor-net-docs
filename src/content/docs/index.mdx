@@ -27,28 +27,77 @@ This project was designed for **Innovate ECE: The Ultimate Thread Challenge**, d
 ## Documentation Sections
 
 <CardGrid stagger>
-	<Card title="Getting Started" icon="rocket">
-		Everything you need to know before you begin: what Sensor Net is, the parts
-		you need to buy, and the software to install.
-	</Card>
-	<Card title="Hardware" icon="setting">
-		Detailed information about the Heltec development board, the TMP102 and
-		BMP280 sensors, and step-by-step wiring instructions.
-	</Card>
-	<Card title="Firmware" icon="seti:hex">
-		How to set up, configure, build, and flash the firmware that runs on each
-		node. Includes guidance on extending the platform with new sensors.
-	</Card>
-	<Card title="Monitor Application" icon="laptop">
-		Install, run, and use the desktop dashboard application that visualizes your
-		sensor network in real time.
-	</Card>
-	<Card title="Concepts" icon="open-book">
-		In-depth explanations of the technologies behind Sensor Net: LoRa radio,
-		mesh networking, Protocol Buffers, and end-to-end data flow.
-	</Card>
-	<Card title="Reference" icon="list-format">
-		Quick-lookup tables for configuration options, pin assignments, serial
-		formats, firmware modules, and a complete glossary.
-	</Card>
+	<a href="/getting-started/overview/" class="card-link card-green">
+		<Card title="Getting Started" icon="rocket">
+			Everything you need to know before you begin: what Sensor Net is, the
+			parts you need to buy, and the software to install.
+		</Card>
+	</a>
+	<a href="/hardware/heltec-board/" class="card-link card-blue">
+		<Card title="Hardware" icon="setting">
+			Detailed information about the Heltec development board, the TMP102 and
+			BMP280 sensors, and step-by-step wiring instructions.
+		</Card>
+	</a>
+	<a href="/firmware/overview/" class="card-link card-purple">
+		<Card title="Firmware" icon="seti:hex">
+			How to set up, configure, build, and flash the firmware that runs on each
+			node. Includes guidance on extending the platform with new sensors.
+		</Card>
+	</a>
+	<a href="/monitor/overview/" class="card-link card-orange">
+		<Card title="Monitor Application" icon="laptop">
+			Install, run, and use the desktop dashboard application that visualizes
+			your sensor network in real time.
+		</Card>
+	</a>
+	<a href="/concepts/lora-radio/" class="card-link card-teal">
+		<Card title="Concepts" icon="open-book">
+			In-depth explanations of the technologies behind Sensor Net: LoRa radio,
+			mesh networking, Protocol Buffers, and end-to-end data flow.
+		</Card>
+	</a>
+	<a href="/reference/configuration/" class="card-link card-red">
+		<Card title="Reference" icon="list-format">
+			Quick-lookup tables for configuration options, pin assignments, serial
+			formats, firmware modules, and a complete glossary.
+		</Card>
+	</a>
 </CardGrid>
+
+<style>{`
+	.card-link {
+		text-decoration: none;
+		color: inherit;
+	}
+	.card-green .icon {
+		color: #22c55e;
+		background-color: #22c55e33;
+		border-color: #22c55e;
+	}
+	.card-blue .icon {
+		color: #3b82f6;
+		background-color: #3b82f633;
+		border-color: #3b82f6;
+	}
+	.card-purple .icon {
+		color: #a855f7;
+		background-color: #a855f733;
+		border-color: #a855f7;
+	}
+	.card-orange .icon {
+		color: #f97316;
+		background-color: #f9731633;
+		border-color: #f97316;
+	}
+	.card-teal .icon {
+		color: #14b8a6;
+		background-color: #14b8a633;
+		border-color: #14b8a6;
+	}
+	.card-red .icon {
+		color: #ef4444;
+		background-color: #ef444433;
+		border-color: #ef4444;
+	}
+`}</style>

@@ -156,8 +156,6 @@ For a typical three-node network, follow this sequence:
    ```
 4. Within a few seconds, `[REPORT]` lines should appear from both the temperature and pressure nodes.
 
-
-
 ## Regenerating Protobuf Files
 
 If you edit `proto/messages.proto` (for example, to add a new field), you need to regenerate the C bindings before rebuilding:
