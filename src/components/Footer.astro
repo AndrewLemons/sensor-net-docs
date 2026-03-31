@@ -1,0 +1,17 @@
+---
+import Default from '@astrojs/starlight/components/Footer.astro';
+---
+
+<Default {...Astro.props}><slot /></Default>
+<div class="copyright-footer">
+	<p>© 2026 Andrew Lemons</p>
+</div>
+
+<style>
+	.copyright-footer {
+		text-align: center;
+		padding: 1rem 0;
+		color: var(--sl-color-gray-3);
+		font-size: var(--sl-text-xs);
+	}
+</style>

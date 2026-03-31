@@ -7,6 +7,9 @@ export default defineConfig({
 	integrations: [
 		starlight({
 			title: "Sensor Net",
+			components: {
+				Footer: "./src/components/Footer.astro",
+			},
 			logo: {
 				light: "./src/assets/sensor-net-logo-light.svg",
 				dark: "./src/assets/sensor-net-logo-dark.svg",

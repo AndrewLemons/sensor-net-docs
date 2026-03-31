@@ -6,8 +6,8 @@ Built with [Astro Starlight](https://starlight.astro.build).
 
 ## Related Repositories
 
-- [sensor-net-firmware](https://github.com/AndrewLemons/sensor-net-firmware) -- PlatformIO firmware for the Heltec WiFi LoRa 32 V3 nodes
-- [sensor-net-monitor](https://github.com/AndrewLemons/sensor-net-monitor) -- Tauri desktop application (Rust + React/TypeScript)
+- [sensor-net-firmware](https://github.com/AndrewLemons/sensor-net-firmware) - Firmware for the Heltec WiFi LoRa 32 V3 nodes
+- [sensor-net-monitor](https://github.com/AndrewLemons/sensor-net-monitor) - Tauri desktop application
 
 ## Commands
 
