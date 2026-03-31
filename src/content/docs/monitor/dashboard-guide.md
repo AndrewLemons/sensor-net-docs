@@ -5,7 +5,7 @@ description: A walkthrough of every section of the monitor application dashboard
 
 Once the monitor is connected to the receiver and sensor nodes are active, the dashboard populates automatically. This page walks through each section of the dashboard from top to bottom.
 
-<!-- Suggested image: full screenshot of the dashboard with all sections visible, annotated with section numbers or labels matching the headings below. -->
+![Full Monitoring Dashboard](../../../assets/full-monitor-dashboard.png)
 
 ## System Status Banner
 
@@ -31,7 +31,7 @@ A visual strip showing the five conceptual stages your data passes through:
 
 Stages illuminate as data moves through the system, providing a real-time visual of the data pipeline. This maps directly to the Information Internetworks thread concepts.
 
-<!-- Suggested image: screenshot of the Information Pipeline strip with stages illuminated. -->
+![Pipeline](../../../assets/pipeline.png)
 
 ## Stats Cards
 
@@ -61,7 +61,7 @@ Each node's line is labeled with the node ID. If enough data points exist, a **t
 
 Trend detection requires at least 3 data points before it activates (configurable via `MIN_POINTS_FOR_TREND` in the [Analytics Thresholds](/reference/analytics-thresholds/)).
 
-<!-- Suggested image: screenshot of the temperature chart showing two node lines with trend badges. -->
+![Sensor Charts](../../../assets/monitor-plots.png)
 
 ## Derived Insights
 
@@ -74,21 +74,7 @@ This section shows what the data _means_ beyond raw numbers. For each node and s
 
 Anomaly thresholds are configurable. See [Analytics Thresholds](/reference/analytics-thresholds/) for the full list.
 
-## Network Map
-
-A visual representation of the mesh network topology. The receiver (base station) is displayed in the center, with each sensor node positioned around it. Each node is color-coded by signal quality:
-
-| Color  | Signal Quality |
-| ------ | -------------- |
-| Green  | Excellent      |
-| Yellow | Good           |
-| Orange | Fair           |
-| Red    | Weak           |
-| Gray   | Offline        |
-
-Nodes that are currently online show a small pulsing dot. The network map helps you quickly identify which nodes have strong connections and which might need to be moved closer to a relay or the receiver.
-
-<!-- Suggested image: screenshot of the network map with three nodes showing different signal quality colors. -->
+![Derived Insights](../../../assets/monitor-derived-insights.png)
 
 ## Node Cards
 
@@ -119,7 +105,7 @@ A table showing the last 20 received packets in a format inspired by network pro
 
 This view is useful for debugging mesh behavior -- you can see which packets were relayed and how signal quality varies per packet.
 
-<!-- Suggested image: screenshot of the packet inspector table with several rows of data. -->
+![Packet Inspector](../../../assets/monitor-packet-inspector.png)
 
 ## Report Table
 
@@ -133,7 +119,7 @@ Lines that contain valid `[REPORT]` data are highlighted in green. All other log
 
 The log console is useful for debugging -- if the receiver is printing data but the dashboard is not updating, you can check here to see whether the lines are being parsed correctly.
 
-<!-- Suggested image: screenshot of the log console showing a mix of report lines (highlighted) and regular log lines. -->
+![Console](../../../assets/monitor-console.png)
 
 ## Next Step
 

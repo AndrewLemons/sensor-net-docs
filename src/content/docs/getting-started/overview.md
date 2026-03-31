@@ -16,7 +16,7 @@ The system has three types of hardware nodes and one desktop application:
 - **A receiver node** listens for all reports and forwards structured data to a computer over USB serial.
 - **The monitor application** connects to the receiver over USB, stores data in a local database, and renders a live dashboard with charts, analytics, and network health indicators.
 
-<!-- Suggested image: a photo showing the complete system -- two or three Heltec boards with sensors attached, one connected to a laptop displaying the monitor dashboard. -->
+![Overview](../../../assets/overview.jpeg)
 
 ## What You Learn
 

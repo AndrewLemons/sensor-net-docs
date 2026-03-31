@@ -23,7 +23,7 @@ If you are using the PlatformIO VS Code extension:
 3. PlatformIO should automatically detect the project from the `platformio.ini` file. You will see the PlatformIO toolbar appear at the bottom of the window.
 4. The first time you open the project, PlatformIO downloads the ESP32 board support package and all required libraries. This may take a few minutes.
 
-<!-- Suggested image: screenshot of VS Code with the PlatformIO toolbar visible at the bottom, showing the sensor-net-firmware project open. -->
+![VS Code](../../../assets/firmware-vscode.png)
 
 If you are using the PlatformIO CLI instead:
 

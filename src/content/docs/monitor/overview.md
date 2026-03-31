@@ -5,6 +5,8 @@ description: What the Sensor Net monitor application does and how it is structur
 
 The Sensor Net monitor is a desktop application that connects to the receiver node over USB, reads incoming sensor data, and displays a live analytics dashboard. It is the "present" layer of the Information Internetworks data pipeline -- turning raw sensor reports into meaningful visualizations.
 
+![Full Monitoring Dashboard](../../../assets/full-monitor-dashboard.png)
+
 ## Source Repository
 
 The monitor application lives in the [sensor-net-monitor](https://github.com/AndrewLemons/sensor-net-monitor) repository.
@@ -16,8 +18,6 @@ The monitor application performs three functions:
 1. **Reads data from the receiver.** A Rust backend opens the USB serial port, reads lines from the receiver node, and parses each `[REPORT]` line into structured data.
 2. **Stores data persistently.** Parsed reports are inserted into a local SQLite database so historical data is retained across sessions.
 3. **Renders a live dashboard.** A React/TypeScript frontend polls the database and computes analytics (trends, anomalies, node health), then renders charts, status indicators, and detailed data tables.
-
-<!-- Suggested image: screenshot of the full monitor dashboard with sensor nodes connected, showing the system status banner, charts, and node cards. -->
 
 ## Technology Stack
 

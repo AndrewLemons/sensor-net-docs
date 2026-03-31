@@ -19,7 +19,7 @@ When you edit a frontend file (anything in `src/`), the UI updates instantly wit
 The first Rust compilation downloads and builds all Rust dependencies from source. This can take several minutes. Subsequent compilations are much faster because only changed code is recompiled.
 :::
 
-<!-- Suggested image: screenshot of the monitor application window in development mode, showing the connection toolbar at the top. -->
+![Monitoring Application](../../../assets/full-monitor-dashboard.png)
 
 ## Frontend Only Mode
 
@@ -46,9 +46,7 @@ Once the app is running:
 5. The status indicator in the header turns green and begins pulsing when data is being received.
 6. To stop reading data, click **Disconnect**.
 
-<!-- Suggested image: screenshot showing the serial port dropdown with a port selected, just before clicking Connect. -->
-
-<!-- Suggested image: screenshot showing the green pulsing status indicator after a successful connection. -->
+![Monitor Connecting](../../../assets/monitor-connect.png)
 
 ## Building for Distribution
 

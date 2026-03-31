@@ -47,7 +47,7 @@ pio run -t upload
 
 PlatformIO automatically detects the connected board's serial port, puts the ESP32 into bootloader mode, and flashes the firmware. You should see progress output followed by a success message.
 
-<!-- Suggested image: screenshot of a successful PlatformIO upload output in the terminal. -->
+![Upload Success](../../../assets/firmware-upload-success.png)
 
 :::tip
 If the upload fails with a port detection error, you may need to specify the port manually:
@@ -66,7 +66,7 @@ pio device list
 
 After flashing, the board automatically resets and begins running the new firmware. You should see the OLED display light up with a splash screen showing the node ID and role.
 
-<!-- Suggested image: photo of a Heltec board's OLED display showing the startup splash screen with node ID and role. -->
+![Boot Success Screen](../../../assets/boot-screen.jpeg)
 
 ## Verifying with the Serial Monitor
 
@@ -156,9 +156,7 @@ For a typical three-node network, follow this sequence:
    ```
 4. Within a few seconds, `[REPORT]` lines should appear from both the temperature and pressure nodes.
 
-<!-- Suggested image: photo of three powered-on boards with the receiver's serial monitor showing report lines on a laptop screen. -->
 
-<!-- Suggested video: short clip showing the complete flash-and-verify process for one node. -->
 
 ## Regenerating Protobuf Files
 

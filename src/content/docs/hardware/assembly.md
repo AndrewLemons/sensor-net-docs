@@ -11,20 +11,18 @@ Gather the following for each sensor node:
 
 - 1 Heltec WiFi LoRa 32 V3 board
 - 1 sensor breakout board (TMP102 or BMP280)
-- 1 small breadboard
 - 4 jumper wires
+- Battery (optional)
 
 Make sure the Heltec board is **not connected to USB power** while wiring.
 
-<!-- Suggested image: photo of all components laid out on a table before assembly begins. -->
+![Pre-Build Parts](../../../assets/pre-build-parts.jpeg)
 
 ## Receiver Node
 
 The receiver node uses **only** the Heltec board with no external wiring. Simply plug it into your computer with a USB-C cable.
 
 The receiver node connects to the monitor application over this USB serial connection. It does not need any sensors because its sole job is to listen for incoming LoRa packets and forward them to the computer.
-
-<!-- Suggested image: photo of a Heltec board plugged into a laptop via USB-C, showing the OLED display lit up. -->
 
 ## Temperature Node (TMP102)
 
@@ -44,16 +42,16 @@ The ADD0 pin sets the I2C address. Connecting it to GND gives an address of 0x48
 
 ### Assembly Steps
 
-1. Place the Heltec board and the TMP102 breakout board on the breadboard, leaving enough space between them to route wires.
-2. Connect a jumper wire from the TMP102 **VCC** pin to the Heltec **3.3V** pin.
-3. Connect a jumper wire from the TMP102 **GND** pin to the Heltec **GND** pin.
-4. Connect a jumper wire from the TMP102 **SDA** pin to Heltec **GPIO 17**.
-5. Connect a jumper wire from the TMP102 **SCL** pin to Heltec **GPIO 18**.
-6. Connect the TMP102 **ADD0** pin to **GND** (this can share the same GND rail on the breadboard).
+1. Gather the Heltec board and the TMP102 breakout board.
+2. Solder appropriate headers on both boards.
+3. Connect a jumper wire from the TMP102 **VCC** pin to the Heltec **3.3V** pin.
+4. Connect a jumper wire from the TMP102 **GND** pin to the Heltec **GND** pin.
+5. Connect a jumper wire from the TMP102 **SDA** pin to Heltec **GPIO 17**.
+6. Connect a jumper wire from the TMP102 **SCL** pin to Heltec **GPIO 18**.
 
-<!-- Suggested image: photo of the completed temperature node wiring on a breadboard, with wires clearly visible and labeled. -->
+![Heltec TMP102 Diagram](../../../assets/tmp-diagram.jpg)
 
-<!-- Suggested image: close-up photo showing the specific pin connections on both the TMP102 breakout and the Heltec header. -->
+![Heltec TMP102 Wiring](../../../assets/heltec-tmp-wiring.jpeg)
 
 :::caution
 Double-check that VCC is connected to the **3.3V** pin, not the **5V** pin. The TMP102 is a 3.3V device and can be damaged by 5V.
@@ -77,14 +75,16 @@ The SDO pin sets the I2C address. Connecting it to GND gives an address of 0x76,
 
 ### Assembly Steps
 
-1. Place the Heltec board and the BMP280 breakout board on the breadboard.
-2. Connect a jumper wire from the BMP280 **VIN** pin to the Heltec **3.3V** pin.
-3. Connect a jumper wire from the BMP280 **GND** pin to the Heltec **GND** pin.
-4. Connect a jumper wire from the BMP280 **SDA** pin to Heltec **GPIO 17**.
-5. Connect a jumper wire from the BMP280 **SCL** pin to Heltec **GPIO 18**.
-6. Connect the BMP280 **SDO** pin to **GND** (can share the breadboard GND rail).
+1. Gather the Heltec board and the BMP280 breakout board.
+2. Solder appropriate headers on both boards.
+3. Connect a jumper wire from the BMP280 **VIN** pin to the Heltec **3.3V** pin.
+4. Connect a jumper wire from the BMP280 **GND** pin to the Heltec **GND** pin.
+5. Connect a jumper wire from the BMP280 **SDA** pin to Heltec **GPIO 17**.
+6. Connect a jumper wire from the BMP280 **SCL** pin to Heltec **GPIO 18**.
 
-<!-- Suggested image: photo of the completed pressure node wiring on a breadboard. -->
+![Heltec BMP280 Diagram](../../../assets/bmp-diagram.jpg)
+
+![Heltec BMP280 Wiring](../../../assets/heltec-bmp-wiring.jpeg)
 
 :::note
 Some BMP280 breakout boards label the power pin as **VCC** instead of **VIN**. Some may also have a **CSB** pin -- leave it unconnected or tie it to VCC to select I2C mode (as opposed to SPI mode).
@@ -104,13 +104,20 @@ Expected I2C addresses for a correctly wired node:
 
 If the sensor does not appear at the expected address, double-check your wiring -- particularly that SDA and SCL are not swapped and that the address-select pin (ADD0 or SDO) is connected to GND.
 
+## Battery
+
+If you choose to have a battery for your nodes, you can now connect it. The Heltec V3 board makes using a battery super easy. I recommend connecting a battery to just the sensor nodes, since the receiver node will get power over USB from the monitoring computer.
+
+![Heltec Battery](../../../assets/heltec-battery.jpeg)
+
 ## Tips
 
 - **Keep wires short.** Shorter I2C wires are more reliable, especially if you later increase the I2C clock speed.
 - **Secure the breadboard.** The Heltec board can wiggle loose from a breadboard during handling. Press it in firmly or use a dab of mounting tape on the back.
 - **Label your nodes.** If you are building multiple nodes, put a small sticker or tape label on each board indicating its role (Receiver, Temperature, Pressure). This helps when it is time to flash each board with the correct firmware configuration.
+- **I2C pins are on the back.** The I2C pins are in a tricky location, and can't have pin headers soldered to them. You'll need to strip the end of two jumper cables and solder directly to the pads. Be careful -- they're small!
 
-<!-- Suggested image: photo of a completed three-node setup -- receiver, temperature node, and pressure node -- all assembled and ready for firmware flashing. -->
+![Three Nodes Wired](../../../assets/three-nodes-wired.png)
 
 ## Next Step
 

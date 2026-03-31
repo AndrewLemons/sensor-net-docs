@@ -15,7 +15,10 @@ This guide walks you through every stage — hardware, firmware, and monitor —
    - 3× Heltec WiFi LoRa 32 V3 (~$18 each)
    - 1× TMP102 temperature breakout (~$5)
    - 1× BMP280 pressure breakout (~$4)
-   - Jumper wires and a breadboard
+   - Jumper wires
+   - Battery (optional)
+
+   ![Parts Overview](../../../assets/pre-build-parts.jpeg)
 
 2. **Install software prerequisites**
 
@@ -72,6 +75,8 @@ This guide walks you through every stage — hardware, firmware, and monitor —
    | SCL    | GPIO 18   |
    | ADD0   | GND       |
 
+   ![TMP102 Wiring](../../../assets/tmp-diagram.jpg)
+
    **Pressure node (BMP280)**
 
    | BMP280 | Heltec V3 |
@@ -81,6 +86,8 @@ This guide walks you through every stage — hardware, firmware, and monitor —
    | SDA    | GPIO 17   |
    | SCL    | GPIO 18   |
    | SDO    | GND       |
+
+   ![BMP280 Wiring](../../../assets/bmp-diagram.jpg)
 
    :::caution
    Always connect VCC/VIN to the **3.3 V** pin. These sensors are not 5 V tolerant.
@@ -138,6 +145,8 @@ This guide walks you through every stage — hardware, firmware, and monitor —
    5. The status indicator in the header turns green when data is flowing.
 
    Power on all sensor nodes. Within a few seconds you should see live temperature and pressure readings appear on the dashboard.
+
+   ![Monitor Application](../../../assets/full-monitor-dashboard.png)
 
 </Steps>
 
